@@ -46,11 +46,11 @@ const Notes = () => {
                   <form className='my-2'>
                     <div className="mb-3">
                       <label htmlFor="title" className="form-label">Title</label>
-                      <input type="text" className="form-control" id="etitle" name='etitle' aria-describedby="emailHelp" onChange={onChange} value={note.etitle ?? ""}/>
+                      <input type="text" className="form-control" id="etitle" name='etitle' aria-describedby="emailHelp" onChange={onChange} value={note.etitle ?? ""} minLength={5} required/>
                     </div>
                     <div className="mb-3">
                       <label htmlFor="description" className="form-label">Description</label>
-                      <input type="text" className="form-control" id="edescription" name='edescription' onChange={onChange} value={note.edescription ?? ""}/>
+                      <input type="text" className="form-control" id="edescription" name='edescription' onChange={onChange} value={note.edescription ?? ""} minLength={5} required/>
                     </div>
                     <div className="mb-3">
                       <label htmlFor="tag" className="form-label">Tag</label>
@@ -69,6 +69,7 @@ const Notes = () => {
       </div>
       <div className="row my-3">
         <h2>Your Notes</h2>
+        {notes.length === 0 && <div className='container mx-2'>No notes to display</div>}
         {notes.map((note) => {
           return <Noteitem key={note._id} updateNote={updateNote} note={note} />
         })}
