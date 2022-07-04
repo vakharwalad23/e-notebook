@@ -30,6 +30,24 @@ const Signup = (props) => {
     const onChange = (e)=> {
         setCredentials({...credentials, [e.target.name]: e.target.value})
       }
+      const handleShowpass = ()=>{
+        const pass = document.getElementById("password");
+        if(pass.type === "password"){
+          pass.type = "text";
+        }
+        else{
+          pass.type = "password";
+        }
+      }
+      const handleShocwpass = ()=>{
+        const pass = document.getElementById("cpassword");
+        if(pass.type === "password"){
+          pass.type = "text";
+        }
+        else{
+          pass.type = "password";
+        }
+      }
     return (
         <>
         <div className="container h-100 w-50 my-5">
@@ -48,10 +66,18 @@ const Signup = (props) => {
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control" id="password" name='password' onChange={onChange} minLength='8' required />
                 </div>
+                <div className="mb-3 form-check">
+              <input type="checkbox" className="form-check-input" id="exampleCheck1" onClick={handleShowpass}/>
+                <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+            </div>
                 <div className="mb-3">
                     <label htmlFor="cpassword" className="form-label">Confirm Password</label>
                     <input type="password" className="form-control" id="cpassword" name='cpassword' onChange={onChange} minLength='8' required/>
                 </div>
+                <div className="mb-3 form-check">
+              <input type="checkbox" className="form-check-input" id="exampleCheck2" onClick={handleShocwpass}/>
+                <label className="form-check-label" htmlFor="exampleCheck2">Check me out</label>
+            </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
