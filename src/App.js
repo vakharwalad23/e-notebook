@@ -14,6 +14,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 
 function App() {
+  const [Mode, setMode] = useState('light');//Shows if dark mode is enable or not
   const [alert, setAlert] = useState(null);
   const showAlert = (message, type) => {
     setAlert({
@@ -24,6 +25,18 @@ function App() {
       setAlert(null);
     }, 1500);
   }
+  const toggleMode = ()=>{
+    if(Mode === 'light'){
+      setMode('dark');
+      document.body.style.backgroundColor = '#272a2e';
+      showAlert("Dark mode has been enabled","success");
+    }
+    else{
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+      showAlert("Light mode has been enabled","success");
+    }
+  }
   return (
     <>
       <NoteState>
@@ -32,13 +45,13 @@ function App() {
           <Alert alert={alert}/>
           <div className='container'>
             <Routes>
-              <Route exact path="/" element={<Home showAlert={showAlert}/>}>
+              <Route exact path="/" element={<Home mode={Mode} toggleMode={toggleMode} showAlert={showAlert}/>}>
               </Route>
-              <Route exact path="/about" element={<About />}>
+              <Route exact path="/about" element={<About mode={Mode} />}>
               </Route>
-              <Route exact path="/login" element={<Login showAlert={showAlert}/>}>
+              <Route exact path="/login" element={<Login mode={Mode} showAlert={showAlert}/>}>
               </Route>
-              <Route exact path="/signup" element={<Signup showAlert={showAlert}/>}>
+              <Route exact path="/signup" element={<Signup mode={Mode} showAlert={showAlert}/>}>
               </Route>
             </Routes>
           </div>

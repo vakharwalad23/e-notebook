@@ -24,7 +24,7 @@ const Userdetails = () => {
   return(
     <>
     {users.map(user => (
-      <div className='btn btn-default active' key='1'>UserName:{user}</div>
+      <div className='btn' style={{cursor:"default", border:"none"}} key='1'>Hello,{user}</div>
     ))} 
     </>
   )
