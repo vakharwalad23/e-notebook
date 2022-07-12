@@ -37,32 +37,32 @@ const Notes = (props) => {
   }
   return (
     <>
-      <AddNote showAlert={props.showAlert}/>
+      <AddNote mode={props.mode} showAlert={props.showAlert}/>
       <button style={{display:"none"}} ref={ref} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className={`modal-content bg-${props.mode==='light'?'light':'dark'}`}>
             <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">Edit Note</h5>
+              <h5 className="modal-title" style={{color:props.mode==='light'?'black':'white'}} id="exampleModalLabel">Edit Note</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
               <div>
                 <div className="container my-3">
-                  <h2>Enter Details To be Updated</h2>
+                  <h2 style={{color:props.mode==='light'?'black':'white'}}>Enter Details To be Updated</h2>
                   <form className='my-2'>
                     <div className="mb-3">
-                      <label htmlFor="title" className="form-label">Title</label>
+                      <label htmlFor="title" className="form-label" style={{color:props.mode==='light'?'black':'white'}}>Title</label>
                       <input type="text" className="form-control" id="etitle" name='etitle' aria-describedby="emailHelp" onChange={onChange} value={note.etitle ?? ""} minLength={5} required/>
                     </div>
                     <div className="mb-3">
-                      <label htmlFor="description" className="form-label">Description</label>
+                      <label htmlFor="description" className="form-label" style={{color:props.mode==='light'?'black':'white'}}>Description</label>
                       <textarea rows="3" className="form-control" id="edescription" name='edescription' onChange={onChange} value={note.edescription ?? ""} minLength={5} required/>
                     </div>
                     <div className="mb-3">
-                      <label htmlFor="tag" className="form-label">Tag</label>
+                      <label htmlFor="tag" className="form-label" style={{color:props.mode==='light'?'black':'white'}}>Tag</label>
                       <input type="text" className="form-control" id="etag" name='etag' onChange={onChange} value={note.etag ?? ""}/>
                     </div>
                   </form>

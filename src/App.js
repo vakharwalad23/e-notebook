@@ -28,7 +28,7 @@ function App() {
   const toggleMode = ()=>{
     if(Mode === 'light'){
       setMode('dark');
-      document.body.style.backgroundColor = '#272a2e';
+      document.body.style.backgroundColor = '#494e55';
       showAlert("Dark mode has been enabled","success");
     }
     else{
@@ -41,7 +41,7 @@ function App() {
     <>
       <NoteState>
         <Router>
-          <Navbar showAlert={showAlert}/>
+          <Navbar mode={Mode} toggleMode={toggleMode} showAlert={showAlert}/>
           <Alert alert={alert}/>
           <div className='container'>
             <Routes>
