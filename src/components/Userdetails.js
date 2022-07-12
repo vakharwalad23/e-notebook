@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 const Userdetails = () => {
+  const dep = localStorage.getItem('token');
   const [users, setUsers] = useState([])
   const getUserdetails = async () => {
     const host = "http://localhost:5000";
@@ -19,7 +20,7 @@ const Userdetails = () => {
   }
   useEffect(()=>{
     getUserdetails()
-  },[])
+  },[dep])
   return(
     <>
     {users.map(user => (
