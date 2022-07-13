@@ -55,15 +55,15 @@ const Notes = (props) => {
                   <form className='my-2'>
                     <div className="mb-3">
                       <label htmlFor="title" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Title</label>
-                      <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD',  boxShadow: props.mode==='light'?'none':'1px 1px 5px 4px grey'}} id="etitle" name='etitle' aria-describedby="emailHelp" onChange={onChange} value={note.etitle ?? ""} minLength={5} required/>
+                      <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="etitle" name='etitle' aria-describedby="emailHelp" onChange={onChange} value={note.etitle ?? ""} minLength={5} required/>
                     </div>
                     <div className="mb-3">
                       <label htmlFor="description" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Description</label>
-                      <textarea rows="3" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' ,  boxShadow: props.mode==='light'?'none':'1px 1px 5px 4px grey'}} id="edescription" name='edescription' onChange={onChange} value={note.edescription ?? ""} minLength={5} required/>
+                      <textarea rows="3" className={`form-control text2 bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} id="edescription" name='edescription' onChange={onChange} value={note.edescription ?? ""} minLength={5} required/>
                     </div>
                     <div className="mb-3">
                       <label htmlFor="tag" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Tag</label>
-                      <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' ,  boxShadow: props.mode==='light'?'none':'1px 1px 5px 4px grey'}} id="etag" name='etag' onChange={onChange} value={note.etag ?? ""}/>
+                      <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} id="etag" name='etag' onChange={onChange} value={note.etag ?? ""}/>
                     </div>
                   </form>
                 </div>

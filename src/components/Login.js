@@ -41,24 +41,24 @@ const Login = (props) => {
     <>
       <div className="container h-100 w-50 my-5">
         <div className='row h-100 justify-content-center align-items-center'>
-          <h1 className='text-center mb-3'>Login</h1>
+          <h1 className='text-center mb-3' style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Login</h1>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-            <i className="fa fa-envelope mx-1" aria-hidden="true"></i>
-              <label htmlFor="email" className="form-label">Email address</label>
-              <input type="email" onChange={onChange} value={credentials.email} className="form-control" id="email" name='email' aria-describedby="emailHelp" />
+            <i className="fa fa-envelope mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i>
+              <label htmlFor="email" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Email address</label>
+              <input type="email" onChange={onChange} value={credentials.email} className={`form-control email bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="email" name='email' aria-describedby="emailHelp" />
               <div id="emailHelp" className="form-text">We'll never disclose your email.</div>
             </div>
             <div className="mb-3">
-            <i className="fa fa-key mx-1" aria-hidden="true"></i>
-              <label htmlFor="password" className="form-label">Password</label>
-              <input type="password" onChange={onChange} value={credentials.password} className="form-control" id="password" name='password' />
+            <i className="fa fa-key mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i>
+              <label htmlFor="password" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Password</label>
+              <input type="password" onChange={onChange} value={credentials.password} className={`form-control pass bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="password" name='password' />
             </div>
             <div className="mb-3 form-check">
-              <input type="checkbox" className="form-check-input" id="exampleCheck1" onClick={handleShowpass}/>
-                <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
+              <input type="checkbox" className={`form-check-input showpass bg-${props.mode==='light'?'none':'dark'}`} style={{borderColor:props.mode==='light'?'black':'white'}} id="exampleCheck1" onClick={handleShowpass}/>
+                <label className="form-check-label" htmlFor="exampleCheck1" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Check me out</label>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className={`btn btn-${props.mode==='light'?'primary':'secondary'}`}>Submit</button>
           </form>
         </div>
       </div>

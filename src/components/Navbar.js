@@ -31,9 +31,9 @@ const Navbar = (props) => {
                                 </li>
                             </ul>
                             {!localStorage.getItem('token') ? <form className="d-flex" role="search">
-                                <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
-                                <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-                            </form> : <div><Userdetails mode={props.mode} /><button onClick={handleLogout} className={`btn btn-${props.mode==='light'?'primary':'secondary'} mx-2`}>Logout</button></div>}
+                                <Link className='mt-2 mx-2' to="/login" role="button"><i className="fa fa-sign-in fa-lg" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i></Link>
+                                <Link className="mt-2 mx-2" to="/signup" role="button"><i className="fa fa-user-plus fa-lg" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i></Link>
+                            </form> : <div><Userdetails mode={props.mode} /><i onClick={handleLogout} className="fa fa-sign-out fa-lg" style={{color:props.mode==='light'?'black':'grey',marginRight:'8px',cursor:'pointer'}} aria-hidden="true"></i></div>}
                                 <ToogleButton toggleMode={props.toggleMode} mode={props.mode}/>
                         </div>
                     </div>

@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+input[type=text]:focus{
+  box-shadow:1px 1px 5px 4px grey;
+  border-color: white;
+}
+.email:focus{
+  box-shadow:1px 1px 5px 4px grey;
+  border-color: white;
+}
+.pass:focus{
+  box-shadow:1px 1px 5px 4px grey;
+  border-color: white;
+}
+.showpass:focus{
+  box-shadow:1px 1px 5px 4px grey;
+  border-color: white;
+}
+.text1:focus{
+  border-color: white;
+  box-shadow:1px 1px 5px 4px grey;
+}
+.text2:focus{
+  border-color: white;
+  box-shadow:1px 1px 5px 4px grey;
+}
+.item:hover{
+  border-color: white;
+  box-shadow:1px 1px 5px 4px grey;
+  transition: box-shadow 0.3s ease-in-out;
+}
