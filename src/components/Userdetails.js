@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 
-const Userdetails = () => {
+const Userdetails = (props) => {
   const dep = localStorage.getItem('token');
   const [users, setUsers] = useState([])
   const getUserdetails = async () => {
@@ -24,7 +24,7 @@ const Userdetails = () => {
   return(
     <>
     {users.map(user => (
-      <div className='btn' style={{cursor:"default", border:"none"}} key='1'>Hello,{user}</div>
+      <div className='btn' style={{cursor:"default", border:"none", color:props.mode==='light'?'black':'#DDDDDD'}} key='1'>Hello,{user}</div>
     ))} 
     </>
   )
