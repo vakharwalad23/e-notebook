@@ -34,7 +34,7 @@ const Navbar = (props) => {
                                 <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
                                 <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
                             </form> : <div><Userdetails mode={props.mode} /><button onClick={handleLogout} className={`btn btn-${props.mode==='light'?'primary':'secondary'} mx-2`}>Logout</button></div>}
-                                <ToogleButton toggleMode={props.toggleMode}/>
+                                <ToogleButton toggleMode={props.toggleMode} mode={props.mode}/>
                         </div>
                     </div>
                 </nav>
