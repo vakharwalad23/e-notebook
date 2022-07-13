@@ -19,21 +19,21 @@ const AddNote = (props)=> {
   return (
     <div>
       <div className="container my-3">
-        <h2>Add a Note</h2>
+        <h2 style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Add a Note</h2>
         <form className='my-2'>
           <div className="mb-3">
-            <label htmlFor="title" className="form-label">Title</label>
-            <input value={note.title} type="text" className="form-control" id="title" name='title' aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
+            <label htmlFor="title" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Title</label>
+            <input value={note.title} type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' ,  boxShadow: props.mode==='light'?'none':'1px 1px 5px 4px grey'}} id="title" name='title' aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
           </div>
           <div className="mb-3">
-            <label htmlFor="description" className="form-label">Description</label>
-            <textarea rows="3" value={note.description} type="text" className="form-control" id="description" name='description' onChange={onChange} minLength={5} required/>
+            <label htmlFor="description" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Description</label>
+            <textarea rows="3" value={note.description} type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' ,  boxShadow: props.mode==='light'?'none':'1px 1px 5px 4px grey'}} id="description" name='description' onChange={onChange} minLength={5} required/>
           </div>
           <div className="mb-3">
-            <label htmlFor="tag" className="form-label">Tag</label>
-            <input value={note.tag} type="text" className="form-control" id="tag" name='tag' onChange={onChange}/>
+            <label htmlFor="tag" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Tag</label>
+            <input value={note.tag} type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' ,  boxShadow: props.mode==='light'?'none':'1px 1px 5px 4px grey'}} id="tag" name='tag' onChange={onChange}/>
           </div>
-          <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
+          <button disabled={note.title.length<5 || note.description.length<5} type="submit" className={`btn btn-${props.mode==='light'?'primary':'secondary'}`} onClick={handleClick}>Add Note</button>
         </form>
       </div>
     </div>
