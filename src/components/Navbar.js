@@ -1,18 +1,19 @@
 import { React, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Userdetails from './Userdetails';
-import ToogleButton from './ToogleButton';
 const Navbar = (props) => {
     let navigate = useNavigate();
-    const handleLogout = () => {
+    const handleLogout = (e) => {
         localStorage.removeItem('token');
         props.showAlert("Successfully Logged Out", "success");
         navigate('/login');
+        e.preventDefault();
     }
     let location = useLocation();
     useEffect(() => {
     }, [location]);
     return (
+        
         <>
             <div>
                 <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
@@ -33,8 +34,7 @@ const Navbar = (props) => {
                             {!localStorage.getItem('token') ? <form className="d-flex" role="search">
                                 <Link className='mt-2 mx-2' to="/login" role="button"><i className="fa fa-sign-in fa-lg" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i></Link>
                                 <Link className="mt-2 mx-2" to="/signup" role="button"><i className="fa fa-user-plus fa-lg" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i></Link>
-                            </form> : <div><Userdetails mode={props.mode} /><i onClick={handleLogout} className="fa fa-sign-out fa-lg" style={{color:props.mode==='light'?'black':'grey',marginRight:'8px',cursor:'pointer'}} aria-hidden="true"></i></div>}
-                                <ToogleButton toggleMode={props.toggleMode} mode={props.mode}/>
+                            </form> : <div><Userdetails toggleMode={props.toggleMode} handleLogout={handleLogout} mode={props.mode}/></div>}
                         </div>
                     </div>
                 </nav>
