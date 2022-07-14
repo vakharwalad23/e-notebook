@@ -79,8 +79,11 @@ const Notes = (props) => {
       <div className="row my-3">
         <h2 style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Your Notes</h2>
         {notes.length === 0 && <div className='container mx-2'>No notes to display</div>}
-        {notes.map((note) => {
-          return <Noteitem mode={props.mode} key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert}/>
+        {notes
+        .sort((a, b) => a.date > b.date?-1:1)
+        .map((note) => {
+          return (<Noteitem mode={props.mode} key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert}/>)
+          ;
         })}
       </div>
     </>
