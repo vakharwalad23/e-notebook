@@ -1,7 +1,7 @@
 import { React, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Userdetails from './Userdetails';
-// import ToogleButton from './ToogleButton';
+import ToogleButton from './ToogleButton';
 const Navbar = (props) => {
     let navigate = useNavigate();
     const handleLogout = (e) => {
@@ -35,8 +35,8 @@ const Navbar = (props) => {
                             {!localStorage.getItem('token') ? <form className="d-flex" role="search">
                                 <Link className='mt-2 mx-2' to="/login" role="button"><i className="fa fa-sign-in fa-lg" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i></Link>
                                 <Link className="mt-2 mx-2" to="/signup" role="button"><i className="fa fa-user-plus fa-lg" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i></Link>
-                                {/* <ToogleButton toggleMode={props.toggleMode} mode={props.mode}/> */}
                             </form> : <div><Userdetails toggleMode={props.toggleMode} handleLogout={handleLogout} mode={props.mode}/></div>}
+                                <ToogleButton toggleMode={props.toggleMode} mode={props.mode}/>
                         </div>
                     </div>
                 </nav>
