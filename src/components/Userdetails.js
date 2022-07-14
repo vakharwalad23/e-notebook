@@ -1,11 +1,7 @@
 import React from 'react';
 import ToogleButton from './ToogleButton';
 import { useEffect, useState } from 'react';
-import Profile from './Profile';
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
   Link
 } from "react-router-dom";
 
@@ -37,11 +33,11 @@ const Userdetails = (props) => {
             <i className="fa fa-user mx-1" aria-hidden="true" style={{color:props.mode==='light'?'black':'grey'}}></i>Hello,{user}
             </button>
             <ul className={`dropdown-menu bg-${props.mode==='light'?'light':'dark'}`}>
-            <li><a className="dropdown-item" href="/profile" style={{color:props.mode==='light'?'black':'grey'}}>Profile</a></li>
+            <li><Link className="dropdown-item" to="/profile" style={{color:props.mode==='light'?'black':'grey'}}>Profile</Link></li>
             <li><a className="dropdown-item" href="/" style={{color:props.mode==='light'?'black':'grey'}}><ToogleButton toggleMode={props.toggleMode} mode={props.mode}/></a></li>
             <li><a className="dropdown-item" href="/" style={{color:props.mode==='light'?'black':'grey'}}>Something else here</a></li>
               <li><hr className="dropdown-divider" style={{color:props.mode==='light'?'black':'white'}}/></li>
-            <li><a className="dropdown-item" href="/" style={{color:props.mode==='light'?'black':'grey'}}>
+            <li><a className="dropdown-item" href="/" onClick={props.handleLogout} style={{color:props.mode==='light'?'black':'grey'}}>
               Logout
               <i className="fa fa-sign-out fa-lg" onClick={props.handleLogout} style={{color:props.mode==='light'?'black':'grey',marginLeft:'5px',cursor:'pointer'}} aria-hidden="true"></i>
                 </a>

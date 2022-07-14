@@ -12,6 +12,7 @@ import NoteState from './context/notes/NoteState';
 import Alert from './components/Alert';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Profile from './components/Profile';
 
 function App() {
   const [Mode, setMode] = useState('light');//Shows if dark mode is enable or not
@@ -52,6 +53,8 @@ function App() {
               <Route exact path="/login" element={<Login mode={Mode} showAlert={showAlert}/>}>
               </Route>
               <Route exact path="/signup" element={<Signup mode={Mode} showAlert={showAlert}/>}>
+              </Route>
+              <Route exact path="/profile" element={<Profile />}>
               </Route>
             </Routes>
           </div>
