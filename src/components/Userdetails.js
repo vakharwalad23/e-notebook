@@ -27,7 +27,7 @@ const Userdetails = (props) => {
   return (
     <>
             {users.map(user => (
-          <div className="btn-group">
+          <div className="btn-group" key='profilebtn'>
             <button type="button" className={`btn dropdown-toggle btn-${props.mode==='light'?'primary':'secondary'}`} data-bs-toggle="dropdown" aria-expanded="false" style={{marginLeft:'4px',marginRight:'5px'}}>
             <i className="fa fa-user mx-1" aria-hidden="true" style={{color:props.mode==='light'?'black':'#dee2e6'}}></i>Hello,{user}
             </button>

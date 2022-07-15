@@ -54,7 +54,7 @@ function App() {
               </Route>
               <Route exact path="/signup" element={<Signup mode={Mode} showAlert={showAlert}/>}>
               </Route>
-              <Route exact path="/profile" element={<Profile />}>
+              <Route exact path="/profile" element={<Profile mode={Mode}/>}>
               </Route>
             </Routes>
           </div>
