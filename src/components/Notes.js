@@ -9,6 +9,7 @@ const Notes = (props) => {
   const context = useContext(noteContext);
   let navigate = useNavigate();
   const { notes, getNotes, editNote} = context;
+  const [query , setQuery] = useState('');
   useEffect(() => {
     if(localStorage.getItem('token')){
       getNotes();
@@ -78,8 +79,19 @@ const Notes = (props) => {
       </div>
       <div className="row my-3">
         <h2 style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Your Notes</h2>
+        {notes.length !== 0 && <form className="d-flex" role="search">
+        <input className={`form-control me-2 search bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} type="search" placeholder="Search" aria-label="Search" onChange={event => setQuery(event.target.value)}/>
+      </form>}
         {notes.length === 0 && <div className='container mx-2'>No notes to display</div>}
         {notes
+        .filter((value)=>{
+          if(query === ''){
+            return value;
+          }
+          else if(value.title.toLowerCase().includes(query.toLowerCase()) || value.description.toLowerCase().includes(query.toLowerCase()) || value.tag.toLowerCase().includes(query.toLowerCase())){
+              return value;
+              }
+            })
         .sort((a, b) => a.date > b.date?-1:1)
         .map((note) => {
           return (<Noteitem mode={props.mode} key={note._id} updateNote={updateNote} note={note} showAlert={props.showAlert}/>)

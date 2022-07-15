@@ -60,6 +60,13 @@ input[type=text]:focus{
   border-color: white;
   box-shadow:1px 1px 5px 4px grey;
 }
+.search{
+ width: 25%;
+}
+.search:focus{
+  border-color: white;
+  box-shadow:1px 1px 5px 4px grey;
+}
 .item:hover{
   border-color: white;
   box-shadow:1px 1px 5px 4px grey;
