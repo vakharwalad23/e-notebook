@@ -12,6 +12,7 @@ const Noteitem = (props) => {
 
             <div className={`card my-2 item bg-${props.mode==='light'?'light':'dark'}`}>
                 <div className="card-body">
+                    <span className={`badge bg-${props.mode==='light'?'dark':'secondary'}`}>{note.tag}</span>
                     <h5 className="card-title" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>{note.title}</h5>
                     <p className="card-text" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>{note.description}</p>
                     <p className="card-text" style={{color:props.mode==='light'?'black':'#DDDDDD'}}><small>{newDate}</small></p>

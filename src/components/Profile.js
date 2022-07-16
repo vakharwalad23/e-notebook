@@ -34,7 +34,7 @@ const Profile = (props) => {
                     <img alt='profile-logo' src='https://cdn-icons-png.flaticon.com/512/1177/1177568.png' className="rounded-circle img-fluid" style={{width: '100px'}} />
                   </div>
                   <h4 className="mb-2" style={{ color: props.mode === 'light' ? 'black' : '#DDDDDD' }}>{users[1]}</h4>
-                  <p className="text-muted mb-4"><a style={{ color: props.mode === 'light' ? 'black' : '#DDDDDD' }} href="#!">{users[2]}</a></p>
+                  <p className="text-muted mb-4"><a style={{ color: props.mode === 'light' ? 'black' : '#DDDDDD' }} href= 'mailto:xyz@gmail.com'>{users[2]}</a></p>
                 </div>
               </div>
 

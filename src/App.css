@@ -77,3 +77,8 @@ input[type=text]:focus{
   box-shadow:1px 1px 5px 4px grey;
   transition: box-shadow 0.3s ease-in-out;
 }
+.badge{
+    position: absolute;
+    right: 1px;
+    top: 2px;
+}
