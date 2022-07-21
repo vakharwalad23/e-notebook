@@ -82,7 +82,7 @@ const Signup = (props) => {
                 <div className="mb-3">
                     <i className="fa fa-mobile mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"/>
                     <label htmlFor="mobileno" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Mobile-Number</label>
-                    <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="mobileno" name='mobileno' onChange={onChange} aria-describedby="emailHelp" required />
+                    <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="mobileno" name='mobileno' onChange={onChange} aria-describedby="emailHelp" minLength='10' required />
                 </div>
                 <div className="mb-3">
                     <i className="fa fa-info mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"/>

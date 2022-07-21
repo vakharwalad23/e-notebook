@@ -31,7 +31,7 @@ const Profile = (props) => {
         <div className="card mb-3" style={{borderRadius: ".5rem", borderColor:props.mode==='light'?' ':'grey' ,backgroundColor:props.mode==='light'?'':'#25292e'}}>
           <div className="row g-0">
             <div className="col-md-4 gradient-custom text-center text-white"
-              style={{borderTopLeftRadius: ".5rem", borderBottomLeftRadius: ".5rem", backgroundColor: "#f6d365"}}>
+              style={{borderTopLeftRadius: ".5rem", borderBottomLeftRadius: ".5rem"}}>
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
                 alt="Avatar" className="img-fluid my-5" style={{width: "80px"}} />
               <h5>{users[1]}</h5>
