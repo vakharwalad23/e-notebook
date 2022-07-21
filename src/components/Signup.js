@@ -61,13 +61,13 @@ const Signup = (props) => {
                     <input type="date" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="birthdate" name='birthdate' onChange={onChange} aria-describedby="emailHelp" required />
                 </div>
                 <div className="mb-3">
-                  <div class="form-check">
+                  <div className="form-check gender mx-2">
                     <label htmlFor="male" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Male</label>
-                    <input htmlFor="male" className={`showpass form-check-input bg-${props.mode==='light'?'':'dark'}`} type="checkbox" value="male" id="male" name='gender' onChange={onChange} aria-describedby="emailHelp"/>
+                    <input htmlFor="male" className={`showpass form-check-input bg-${props.mode==='light'?'':'dark'}`} type="checkbox" value="Male" id="male" name='gender' onChange={onChange} aria-describedby="emailHelp"/>
                   </div>
-                  <div class="form-check">
+                  <div className="form-check gender">
                   <label htmlFor="female" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Female</label>
-                    <input htmlFor="female" className={`showpass form-check-input bg-${props.mode==='light'?'':'dark'}`} type="checkbox" value="fe-male" id="female" name='gender' onChange={onChange} aria-describedby="emailHelp"/>
+                    <input htmlFor="female" className={`showpass form-check-input bg-${props.mode==='light'?'':'dark'}`} type="checkbox" value="fe-male" id="Female" name='gender' onChange={onChange} aria-describedby="emailHelp"/>
                   </div>
                 </div>
                 <div className="mb-3">
