@@ -5,7 +5,6 @@ import {
 } from "react-router-dom";
 
 const Userdetails = (props) => {
-  const dep = localStorage.getItem('token');
   const [users, setUsers] = useState([])
   const getUserdetails = async () => {
     const host = "http://localhost:5000";
@@ -23,7 +22,7 @@ const Userdetails = (props) => {
   }
   useEffect(() => {
     getUserdetails()
-  }, [dep])
+  }, [])
   return (
     <>
             {users.map(user => (

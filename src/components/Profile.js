@@ -16,6 +16,7 @@ const Profile = (props) => {
     });
     const data = await response.json();
     const userArr = Object.values(data);
+    console.log(userArr);
     setUsers(userArr);
   }
   useEffect(() => {
@@ -23,26 +24,56 @@ const Profile = (props) => {
   }, [dep])
   return (
     <>
-      <section className="vh-30">
-        <div className="container py-5 h-100">
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-md-12 col-xl-4">
-
-              <div className="card cprofile" style={{borderRadius: '15px',backgroundColor: props.mode === 'light' ? 'white' : '#25292e',borderColor: props.mode === 'light' ? 'black' : 'grey'}}>
-                <div className="card-body text-center">
-                  <div className="mt-3 mb-4">
-                    <img alt='profile-logo' src='https://cdn-icons-png.flaticon.com/512/1177/1177568.png' className="rounded-circle img-fluid" style={{width: '100px'}} />
+      <section>
+      <div className="container py-5 h-100">
+    <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="col col-lg-6 mb-4 mb-lg-0" style={{borderRadius: ".5rem",borderColor:props.mode==='light'?' ':'grey'}}>
+        <div className="card mb-3" style={{borderRadius: ".5rem", borderColor:props.mode==='light'?' ':'grey' ,backgroundColor:props.mode==='light'?'':'#25292e'}}>
+          <div className="row g-0">
+            <div className="col-md-4 gradient-custom text-center text-white"
+              style={{borderTopLeftRadius: ".5rem", borderBottomLeftRadius: ".5rem", backgroundColor: "#f6d365"}}>
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                alt="Avatar" className="img-fluid my-5" style={{width: "80px"}} />
+              <h5>{users[1]}</h5>
+              <p>{users[5]}</p>
+            </div>
+            <div className="col-md-8">
+              <div className="card-body p-4" style={{backgroundColor:props.mode==='light'?'':'#25292e', color:props.mode==='light'?'black':'#DDDDDD', borderRadius: ".5rem", borderColor:props.mode==='light'?' ':'grey'}}>
+                <h6>Contact Information</h6>
+                <hr className="mt-0 mb-4"/>
+                <div className="row pt-1">
+                  <div className="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p className="text" style={{color:props.mode==='light'?'black':'#b2bdc8'}}>{users[2]}</p>
                   </div>
-                  <h4 className="mb-2" style={{ color: props.mode === 'light' ? 'black' : '#DDDDDD' }}>{users[1]}</h4>
-                  <p className="text-muted mb-4"><a style={{ color: props.mode === 'light' ? 'black' : '#DDDDDD' }} href= 'mailto:xyz@gmail.com'>{users[2]}</a></p>
+                  <div className="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p className="text" style={{color:props.mode==='light'?'black':'#b2bdc8'}}>{users[4]}</p>
+                  </div>
+                </div>
+                <h6>Personal Information</h6>
+                <hr className="mt-0 mb-4"/>
+                <div className="row pt-1">
+                  <div className="col-6 mb-3">
+                    <h6>Birthdate</h6>
+                    <p className="text" style={{color:props.mode==='light'?'black':'#b2bdc8'}}>{users[3]}</p>
+                  </div>
+                  <div className="col-6 mb-3">
+                    <h6>Gender</h6>
+                    <p className="text" style={{color:props.mode==='light'?'black':'#b2bdc8'}}>{users[6]}</p>
+                  </div>
+                </div>
+                <div className="d-flex justify-content-start">
+                <p><i class="fa fa-copyright fa-sm" style={{color:'#4267B2'}} aria-hidden="true"/>Copyright iNotebook-2022</p>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
-      </section>
-
+      </div>
+    </div>
+  </div>
+</section>
     </>
   )
 }

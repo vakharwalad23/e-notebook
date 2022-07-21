@@ -1,18 +1,15 @@
 import React, {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-
 const Signup = (props) => {
-    const [credentials, setCredentials] = useState({name:"", email: "", password:"", cpassword:""});
-    let navigate = useNavigate();
+    const [credentials, setCredentials] = useState({name:"", email: "", password:"", cpassword:"", mobileno:"", gender:"", birthdate:"", bio:""});
     const handleSubmit = async (e)=>{
         e.preventDefault();
-        const {name, email, password} = credentials;
+        const {name, email, password, mobileno, gender, birthdate, bio} = credentials;
         const response = await fetch("http://localhost:5000/api/auth/createUser", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name, email, password})
+            body: JSON.stringify({name, email, password, bio, birthdate, gender, mobileno})
           });
           const json = await response.json();
           console.log(json);
@@ -20,7 +17,6 @@ const Signup = (props) => {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authtoken);
             localStorage.setItem('name', json.name);
-            navigate('/login');
             props.showAlert("Account Created Successfully", "success");
           }
           else{
@@ -60,10 +56,35 @@ const Signup = (props) => {
                     <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="name" name='name' onChange={onChange} aria-describedby="emailHelp" required />
                 </div>
                 <div className="mb-3">
+                    <i className="fa fa-calendar mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"/>
+                    <label htmlFor="birthdate" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Birthdate</label>
+                    <input type="date" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="birthdate" name='birthdate' onChange={onChange} aria-describedby="emailHelp" required />
+                </div>
+                <div className="mb-3">
+                  <div class="form-check">
+                    <label htmlFor="male" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Male</label>
+                    <input htmlFor="male" className={`showpass form-check-input bg-${props.mode==='light'?'':'dark'}`} type="checkbox" value="male" id="male" name='gender' onChange={onChange} aria-describedby="emailHelp"/>
+                  </div>
+                  <div class="form-check">
+                  <label htmlFor="female" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Female</label>
+                    <input htmlFor="female" className={`showpass form-check-input bg-${props.mode==='light'?'':'dark'}`} type="checkbox" value="fe-male" id="female" name='gender' onChange={onChange} aria-describedby="emailHelp"/>
+                  </div>
+                </div>
+                <div className="mb-3">
                 <i className="fa fa-envelope mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i>
                     <label htmlFor="email" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Email address</label>
                     <input type="email" className={`form-control email bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="email" name='email' onChange={onChange} aria-describedby="emailHelp" required/>
                     <div id="emailHelp" className="form-text">We'll never diclose your email.</div>
+                </div>
+                <div className="mb-3">
+                    <i className="fa fa-mobile mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"/>
+                    <label htmlFor="mobileno" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Mobile-Number</label>
+                    <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="mobileno" name='mobileno' onChange={onChange} aria-describedby="emailHelp" required />
+                </div>
+                <div className="mb-3">
+                    <i className="fa fa-info mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"/>
+                    <label htmlFor="bio" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Bio</label>
+                    <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="bio" name='bio' onChange={onChange} aria-describedby="emailHelp" required />
                 </div>
                 <div className="mb-3">
                     <i className="fa fa-key mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i>

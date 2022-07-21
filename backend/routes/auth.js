@@ -13,6 +13,10 @@ router.post('/createUser', [
   body('name', 'Enter a valid name').isLength({ min: 3 }),
   body('email', 'Enter a valid email').isEmail(),
   body('password', 'Password must be atleast 8 characters').isLength({ min: 8 }),
+  body('birthdate', 'Birthdate must be entered').isLength({ min: 10 }),
+  body('mobileno', 'Mobileno must be atleast 10 characters').isLength({ min: 10 , max:10 }),
+  body('gender', 'Please enter gender'),
+  body('bio', 'Bio must be atleast 8 characters').isLength({ min: 8 })
 ], async (req, res) => {
   let success = false;
   // If there are errors, return Bad request and th errors
@@ -26,6 +30,10 @@ router.post('/createUser', [
     if (user) {
       return res.status(400).json({success, error: "Sorry a user with this email already exsists" })
     }
+    let mono = await User.findOne({ mobileno: req.body.mobileno });
+    if (mono) {
+      return res.status(400).json({success, error: "Sorry a user with this mobile-number already exsists" })
+    }
     const salt = await bcrypt.genSalt(10);
     const secPass = await bcrypt.hash(req.body.password, salt);
 
@@ -33,6 +41,10 @@ router.post('/createUser', [
     user = await User.create({
       name: req.body.name,
       email: req.body.email,
+      birthdate:req.body.birthdate,
+      mobileno:req.body.mobileno,
+      gender:req.body.gender,
+      bio:req.body.bio,
       password: secPass
     });
     const data = {

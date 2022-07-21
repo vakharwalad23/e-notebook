@@ -40,6 +40,10 @@ input[type=text]:focus{
   box-shadow:1px 1px 5px 4px grey;
   border-color: white;
 }
+.gender:focus{
+  box-shadow:1px 1px 5px 4px grey;
+  border-color: white;
+}
 .email:focus{
   box-shadow:1px 1px 5px 4px grey;
   border-color: white;
