@@ -23,7 +23,7 @@ const AddNote = (props)=> {
         <form className='my-2'>
           <div className="mb-3">
             <label htmlFor="title" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Title</label>
-            <input autocomplete="off" value={note.title} type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} id="title" name='title' aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
+            <input autoComplete="off" value={note.title} type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} id="title" name='title' aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
           </div>
           <div className="mb-3">
             <label htmlFor="description" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Description</label>
@@ -31,7 +31,7 @@ const AddNote = (props)=> {
           </div>
           <div className="mb-3"> 
             <label htmlFor="tag" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Tag</label>
-            <input autocomplete="off" value={note.tag} type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} id="tag" name='tag' onChange={onChange}/>
+            <input autoComplete="off" value={note.tag} type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} id="tag" name='tag' onChange={onChange}/>
           </div>
           <button disabled={note.title.length<5 || note.description.length<5} type="submit" className={`btn btn-${props.mode==='light'?'primary':'secondary'}`} onClick={handleClick}>Add Note</button>
         </form>
