@@ -46,16 +46,16 @@ const Login = (props) => {
             <div className="mb-3">
             <i className="fa fa-envelope mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i>
               <label htmlFor="email" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Email address</label>
-              <input type="email" onChange={onChange} value={credentials.email} className={`form-control email bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="email" name='email' aria-describedby="emailHelp" />
+              <input autocomplete="off" type="email" onChange={onChange} value={credentials.email} className={`form-control email bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="email" name='email' aria-describedby="emailHelp" />
               <div id="emailHelp" className="form-text">We'll never disclose your email.</div>
             </div>
             <div className="mb-3">
             <i className="fa fa-key mx-1" style={{color:props.mode==='light'?'black':'grey'}} aria-hidden="true"></i>
               <label htmlFor="password" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Password</label>
-              <input type="password" onChange={onChange} value={credentials.password} className={`form-control pass bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="password" name='password' />
+              <input autocomplete="off" type="password" onChange={onChange} value={credentials.password} className={`form-control pass bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="password" name='password' />
             </div>
             <div className="mb-3 form-check">
-              <input type="checkbox" className={`form-check-input showpass bg-${props.mode==='light'?'none':'dark'}`} style={{borderColor:props.mode==='light'?'black':'white'}} id="exampleCheck1" onClick={handleShowpass}/>
+              <input autocomplete="off" type="checkbox" className={`form-check-input showpass bg-${props.mode==='light'?'none':'dark'}`} style={{borderColor:props.mode==='light'?'black':'white'}} id="exampleCheck1" onClick={handleShowpass}/>
                 <label className="form-check-label" htmlFor="exampleCheck1" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Check me out</label>
             </div>
             <button type="submit" className={`btn btn-${props.mode==='light'?'primary':'secondary'}`}>Submit</button>

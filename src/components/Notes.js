@@ -56,7 +56,7 @@ const Notes = (props) => {
                   <form className='my-2'>
                     <div className="mb-3">
                       <label htmlFor="title" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Title</label>
-                      <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="etitle" name='etitle' aria-describedby="emailHelp" onChange={onChange} value={note.etitle ?? ""} minLength={5} required/>
+                      <input autocomplete="off" type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD'}} id="etitle" name='etitle' aria-describedby="emailHelp" onChange={onChange} value={note.etitle ?? ""} minLength={5} required/>
                     </div>
                     <div className="mb-3">
                       <label htmlFor="description" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Description</label>
@@ -64,7 +64,7 @@ const Notes = (props) => {
                     </div>
                     <div className="mb-3">
                       <label htmlFor="tag" className="form-label" style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Tag</label>
-                      <input type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} id="etag" name='etag' onChange={onChange} value={note.etag ?? ""}/>
+                      <input autocomplete="off" type="text" className={`form-control bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} id="etag" name='etag' onChange={onChange} value={note.etag ?? ""}/>
                     </div>
                   </form>
                 </div>
@@ -80,7 +80,7 @@ const Notes = (props) => {
       <div className="row my-3">
         <h2 style={{color:props.mode==='light'?'black':'#DDDDDD'}}>Your Notes</h2>
         {notes.length !== 0 && <form className="d-flex" role="search">
-        <input className={`form-control me-2 search bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} type="search" placeholder="Search" aria-label="Search" onChange={event => setQuery(event.target.value)}/>
+        <input autocomplete="off" className={`form-control me-2 search bg-${props.mode==='light'?'light':'dark'}`} style={{color:props.mode==='light'?'black':'#DDDDDD' }} type="search" placeholder="Search" aria-label="Search" onChange={event => setQuery(event.target.value)}/>
       </form>}
         {notes.length === 0 && <div className='container mx-2'>No notes to display</div>}
         {notes
