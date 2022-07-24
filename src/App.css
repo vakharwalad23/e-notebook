@@ -92,3 +92,9 @@ input[type=text]:focus{
 .gradient-custom{
   background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
 }
+.ddn:focus{
+  border: 0px;
+}
+.ddn{
+  border: 0px;
+}
